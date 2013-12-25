@@ -38,7 +38,7 @@ prod.time <- as.POSIXlt(prod.time, format="%Y%m%d%H%M")
 prod.time <- format.Date(prod.time, "%d %b %H:%M")
 
 # txtplot
-txt.file <- paste(fig.dir, "/", plot.file1, ".txt", sep="")
+txt.file <- paste(fig.dir, "/", plot.file1, "-precip-onehour.txt", sep="")
 sink(file=txt.file)
 cat("\n\n")
 cat("Probability of precipitation for Exeter, Devon, UK\n")
