@@ -1,4 +1,4 @@
 ./get-forecastio-data.sh
-Rscript draw-figures.R
+Rscript draw-precip-onehour.R
 ./publish-txt.sh
 
