@@ -12,9 +12,11 @@ fi
 datadir=$homedir/data
 figdir=$homedir/fig
 pubdir=$homedir/pub
+Rdir=$homedir/R
 mkdir -p $datadir 
 mkdir -p $figdir 
 mkdir -p $pubdir
+mkdir -p $Rdir
 
 # get forecast.io id
 forecast_id=`cat $homedir/my-forecast-io-id.txt`
@@ -36,7 +38,7 @@ fi
 echo $jsonfile > $tmpfile_precip
 
 # run R programs to generate plots
-/usr/bin/env Rscript $homedir/draw-precip-onehour.R
+/usr/bin/env Rscript $Rdir/draw-precip-onehour.R
 cp -f $tmpplotfile_precip $pubdir/exeter-precip-onehour.txt
 
 # commit changes and push to github
