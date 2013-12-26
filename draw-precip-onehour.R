@@ -5,9 +5,6 @@ library("txtplot")
 tmpfile_precip <- "/tmp/exeterprecip.tmp" 
 tmpplotfile_precip <- "/tmp/exeterprecip_plot.tmp"
 
-
-setwd("/tmp")
-
 # get most recent exeter file
 data.file <- readLines(tmpfile_precip)
 
@@ -30,7 +27,7 @@ time <- as.POSIXct(time, origin="1970-01-01", tz="London")
 
 # "production time" of the plot
 N <- length(time)
-last.update.time <- file.info(data.file)[["mtime"]]
+last.update.time <- paste(file.info(data.file)[["mtime"]])
 
 # txtplot
 sink(file=tmpplotfile_precip)

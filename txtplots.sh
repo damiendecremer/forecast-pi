@@ -33,7 +33,7 @@ if [ ! -e jsonfile ]
 then
   wget "https://api.forecast.io/forecast/$forecast_id/50.7166,-3.5333" -O $jsonfile
 fi
-echo $jsonfile > /tmp/$tmpfile_precip
+echo $jsonfile > $tmpfile_precip
 
 # run R programs to generate plots
 /usr/bin/env Rscript $homedir/draw-precip-onehour.R
