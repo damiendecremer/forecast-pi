@@ -2,7 +2,7 @@ library("rjson")
 library("txtplot")
 
 # temporary files as defined in main bash script
-tmpfile_precip <- "/tmp/exeterprecip.tmp" 
+tmpfile_precip <- "/tmp/exeterforecastio.tmp" 
 tmpplotfile_precip <- "/tmp/exeterprecip_plot.tmp"
 
 # get most recent exeter file
