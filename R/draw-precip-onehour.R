@@ -2,11 +2,11 @@ library("rjson")
 library("txtplot")
 
 # temporary files as defined in main bash script
-tmpfile_precip <- "/tmp/exeterprecip.tmp" 
+tmpfile <- "/tmp/exeterforecastio.tmp"
 tmpplotfile_precip <- "/tmp/exeterprecip_plot.tmp"
 
 # get most recent exeter file
-data.file <- readLines(tmpfile_precip)
+data.file <- readLines(tmpfile)
 
 # create list from JSON object
 j <- fromJSON(readLines(data.file, warn=FALSE))
