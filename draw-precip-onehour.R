@@ -1,6 +1,8 @@
 library("rjson")
 library("txtplot")
 
+print(home.dir)
+
 # initializations
 data.dir <- paste0(home.dir, "/data")
 fig.dir <- paste0(home.dir, "/fig")
@@ -31,7 +33,7 @@ time <- sapply(minu.list, `[[`, "time")
 time <- as.POSIXct(time, origin="1970-01-01", tz="London")
 
 # initialize plot filename
-plot.file1 <- strsplit(data.file, "/")[[1]][2]
+plot.file1 <- tail(strsplit(data.file, "/")[[1]], 1)
 plot.file1 <- strsplit(plot.file1, "\\.")[[1]][1]
 
 # "production time" of the plot
