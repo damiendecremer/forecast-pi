@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-forecast_id = `cat my-forecast-io-id.txt`
+forecast_id=`cat my-forecast-io-id.txt`
 
 #place where data is stored
 datadir=data
