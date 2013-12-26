@@ -2,8 +2,8 @@ library("rjson")
 library("txtplot")
 
 # initializations
-data.dir <- "data"
-fig.dir <- "fig"
+data.dir <- paste0(home.dir, "/data")
+fig.dir <- paste0(home.dir, "/fig")
 if (!file.exists(fig.dir)) {
   system(paste("mkdir", fig.dir))
 }
@@ -51,6 +51,7 @@ cat("\n\n")
 sink()
 
 # save filename
-cmd <- paste("echo", txt.file, ">> MOSTRECENT")
+cmd <- paste0("echo ", txt.file, " >> ", home.dir, "/MOSTRECENT")
 system(cmd)
+
 

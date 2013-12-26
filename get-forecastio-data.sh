@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-forecast_id=`cat my-forecast-io-id.txt`
-
-#place where data is stored
-datadir=data
-mkdir -p $datadir
+# set all required environment variables
+. ./set-env-variables.sh
 
 # current time in filename
 now=`date +%Y%m%d-%H%M`
@@ -18,5 +15,5 @@ then
 fi
 
 # update mostrecent file
-echo $jsonfile > MOSTRECENT
+echo $jsonfile > $homedir/MOSTRECENT
 

@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-./get-forecastio-data.sh
-Rscript draw-precip-onehour.R
-./publish-txt.sh
+
+. ./set-env-variables.sh
+
+$homedir/get-forecastio-data.sh
+/usr/bin/env Rscript -e "home.dir <- '$homedir'; source('$homedir/draw-precip-onehour.R')"
+$homedir/publish-txt.sh
 
