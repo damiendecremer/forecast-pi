@@ -5,7 +5,7 @@ if [ `hostname` = horstkevin ]; then
   homedir=/home/stefan/folders/forecast-pi-git
 fi
 if [ `hostname` = raspberrypi ]; then
-  homedir=/home/pi/forecast-pi
+  homedir=/home/pi/folders/forecast-pi
 fi
 
 #init directories
