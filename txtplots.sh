@@ -48,7 +48,8 @@ cp -f $tmpplotfile_temp48 $pubfile_temp48
 cd $homedir
 git add $pubfile_precip
 git commit -m "precip one hour `date +%Y%m%d-%H%M`"
-git add $pubfile_precip
+git add $pubfile_temp48
+git commit -m "temperature two days `date +%Y%m%d-%H%M`"
 git push origin master
 
 #clean up
