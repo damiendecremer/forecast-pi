@@ -1,19 +1,15 @@
 library("rjson")
 library("txtplot")
 
-print(home.dir)
+# temporary files as defined in main bash script
+tmpfile_precip <- "/tmp/exeterprecip.tmp" 
+tmpplotfile_precip <- "/tmp/exeterprecip_plot.tmp"
 
-# initializations
-data.dir <- paste0(home.dir, "/data")
-fig.dir <- paste0(home.dir, "/fig")
-if (!file.exists(fig.dir)) {
-  system(paste("mkdir", fig.dir))
-}
+
+setwd("/tmp")
 
 # get most recent exeter file
-ex.files <- dir(data.dir, full.names=TRUE)
-ex.files <- grep("exeter-", ex.files, value=TRUE)
-data.file <- tail(sort(ex.files), 1)
+data.file <- readLines(tmpfile_precip)
 
 # create list from JSON object
 j <- fromJSON(readLines(data.file, warn=FALSE))
@@ -32,28 +28,16 @@ time <- sapply(minu.list, `[[`, "time")
 # unix time to real time
 time <- as.POSIXct(time, origin="1970-01-01", tz="London")
 
-# initialize plot filename
-plot.file1 <- tail(strsplit(data.file, "/")[[1]], 1)
-plot.file1 <- strsplit(plot.file1, "\\.")[[1]][1]
-
 # "production time" of the plot
 N <- length(time)
-prod.time <- paste(strsplit(plot.file1, "-")[[1]][-1], collapse="")
-prod.time <- as.POSIXlt(prod.time, format="%Y%m%d%H%M")
-prod.time <- format.Date(prod.time, "%d %b %H:%M")
+last.update.time <- file.info(data.file)[["mtime"]]
 
 # txtplot
-txt.file <- paste(fig.dir, "/", plot.file1, "-precip-onehour.txt", sep="")
-sink(file=txt.file)
+sink(file=tmpplotfile_precip)
 cat("\n\n")
 cat("Probability of precipitation for Exeter, Devon, UK\n")
-cat("last update: ", prod.time, "\n\n\n")
+cat("last update: ", last.update.time, "\n\n\n")
 txtplot(1:N, prcp.prob, xlim=c(1,N), ylim=c(-.1, 1.1), xlab="lead time [min]")
 cat("\n\n")
 sink()
-
-# save filename
-cmd <- paste0("echo ", txt.file, " >> ", home.dir, "/MOSTRECENT")
-system(cmd)
-
 
