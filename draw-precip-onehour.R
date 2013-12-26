@@ -4,6 +4,9 @@ library("txtplot")
 # initializations
 data.dir <- "data"
 fig.dir <- "fig"
+if (!file.exists(fig.dir)) {
+  system(paste("mkdir", fig.dir))
+}
 
 # get most recent exeter file
 ex.files <- dir(data.dir, full.names=TRUE)
