@@ -17,7 +17,7 @@ mkdir -p $figdir
 mkdir -p $pubdir
 
 # get forecast.io id
-forecast_id=`cat my-forecast-io-id.txt`
+forecast_id=`cat $homedir/my-forecast-io-id.txt`
 
 # initialize files
 tmpfile_precip=/tmp/exeterprecip.tmp
