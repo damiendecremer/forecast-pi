@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # get MOSTRECENT figure file
 file=`grep ^fig.*precip-onehour.txt$ MOSTRECENT`
 cp -f $file pub/exeter-precip-onehour.txt
