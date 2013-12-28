@@ -1,7 +1,7 @@
 
 
 Probability of precipitation for Exeter, Devon, UK
-last update:  2013-12-28 03:10:09 
+last update:  2013-12-28 03:15:08 
 
 
     +--------+---------+---------+--------+---------+---------++
