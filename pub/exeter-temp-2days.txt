@@ -1,7 +1,7 @@
 
 
 48 hour temperature forecast for Exeter, Devon, UK
-last update:  2014-01-01 14:20:08 
+last update:  2014-01-01 14:25:08 
 
 
    +----------+------------+-----------+------------+----------+
